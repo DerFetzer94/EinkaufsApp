@@ -8,6 +8,12 @@ class Gruppe {
     this.artikelListe = []
   }
 
+  /**
+   * 
+   * @param suchName
+   * @param meldungAusgeben
+   * @returns {null|*}
+   */
   artikelFinden(suchName, meldungAusgeben) {
     let gefundeneArtikel = this.artikelListe.filter(artikel => artikel.name == suchName)
     if (gefundeneArtikel.length > 0) {

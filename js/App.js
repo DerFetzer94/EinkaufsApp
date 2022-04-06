@@ -1,9 +1,21 @@
+/**
+ * Diese Klasse steuert das Modell der ShoppingList
+ * @property {string} STORAGE_KEY Name des Eintrags im LocalStorage
+ * @property {Gruppe[]} gruppenListe enthält die Artikelgruppen
+ * @propertu {number} aktiveGruppe enthält die ID der aktuell ausgewählten Gruppe
+ * @property (boolean} meldungenAusgeben steuert, ob eine Meldung ausgegeben werden soll oder nicht
+ */
 class App {
   static STORAGE_KEY = "einkaufslisteDaten"
   static gruppenListe = []
   static aktiveGruppe = null
   static meldungenAusgeben = true
 
+  /**
+   * Sucht eine Gruppe nach der ID und liefert es als Objekt zurück
+   * @param {number} gruppenId - ID der gesuchten Gruppe
+   * @returns {null|Gruppe} gefundeneGruppe - die gefundene Gruppe, gibt 'null' wenn nichts gefunden wurde
+   */
   static gruppeFinden(gruppenId) {
     const gefundeneGruppen = this.gruppenListe.filter((gruppe) => gruppe.id == gruppenId)
     if (gefundeneGruppen.length > 0) {
@@ -14,6 +26,11 @@ class App {
     }
   }
 
+  /**
+   * Fügt eine Gruppe in der Gruppenliste hinzu
+   * @param name - der Name der Gruppe z.B. 'Obst' wird hinzugefügt
+   * @returns {Gruppe} - gibt eine erstellte Gruppe zurück
+   */
   static gruppeHinzufuegen(name) {
     const gleicheGruppen = this.gruppenListe.filter(gruppe => gruppe.name == name)
     // keine Gruppe mit diesem Namen vorhanden
@@ -28,6 +45,11 @@ class App {
     }
   }
 
+  /**
+   * Hier wird die Gruppe mit der ID der 'gruppenId' umbenannt
+   * @param {number} gruppenId - ID der Gruppe
+   * @param neuerName - der neue Name der Gruppe
+   */
   static gruppeUmbenennen(gruppenId, neuerName) {
     let gruppe = this.gruppeFinden(gruppenId)
     if (gruppe) {
@@ -37,6 +59,10 @@ class App {
     }
   }
 
+  /**
+   * Hier wird eine bereits erstellte Gruppe mit der 'gruppenId' gelöscht 
+   * @param {number} gruppenId - ID der Gruppe
+   */
   static gruppeEntfernen(gruppenId) {
     let gruppe = this.gruppeFinden(gruppenId)
     if (gruppe) {
