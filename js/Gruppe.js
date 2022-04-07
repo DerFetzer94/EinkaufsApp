@@ -9,7 +9,7 @@ class Gruppe {
   }
 
   /**
-   * 
+   * Hier wird der artikel gesucht
    * @param suchName
    * @param meldungAusgeben
    * @returns {null|*}

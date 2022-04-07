@@ -1,15 +1,14 @@
 class ShoppingTag extends React.Component {
     constructor() {
         super();
-        
+       
         this.state = {aktiveGruppe: null}
         this.startzustandLaden()
 
     }
 
     /**
-     * 
-     * @returns {Promise<void>}
+     * Hier wird der letzte stand geladen
      */
     async startzustandLaden() {
         let gespeicherterZustand = localStorage.getItem(App.STORAGE_KEY)
@@ -36,8 +35,8 @@ class ShoppingTag extends React.Component {
     }
 
     /**
-     * 
-     * @param artikel
+     * Hier wird der hacken gesetzt oder rausgenommen
+     * @param artikel - der artikel der gecheckt wird
      */
     artikelChecken = (artikel) => {
         artikel.gekauft = !artikel.gekauft
@@ -46,8 +45,8 @@ class ShoppingTag extends React.Component {
     }
 
     /**
-     * 
-     * @param gruppenID
+     * Hier wird eine Gruppe auf aktuell gesetzt und ein neuen Artikel hinzuzufügen
+     * @param gruppenID 
      */
     setAktiveGruppe = (gruppenID) => {
         App.aktiveGruppe = gruppenID

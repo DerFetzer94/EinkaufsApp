@@ -21,8 +21,11 @@ class GruppenTag extends React.Component {
     aufZuKlappen() {
         this.setState({aufgeklappt: !this.state.aufgeklappt})
     }
-    
 
+    /**
+     * implemintiert den html code in react
+     * @returns {JSX.Element}
+     */
     render = () => {
         let itemsRelevant = this.props.gruppe.artikelListe.filter(item => item.gekauft == this.props.erledigt)
         return (
